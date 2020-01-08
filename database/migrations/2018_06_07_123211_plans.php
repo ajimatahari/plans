@@ -14,7 +14,7 @@ class Plans extends Migration
     public function up()
     {
         Schema::create('plans', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->string('name');
             $table->text('description')->nullable();
@@ -28,7 +28,7 @@ class Plans extends Migration
         });
 
         Schema::create('plans_features', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('plan_id');
 
             $table->string('name');
@@ -42,7 +42,7 @@ class Plans extends Migration
         });
 
         Schema::create('plans_subscriptions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('plan_id');
 
             $table->integer('model_id');
@@ -65,7 +65,7 @@ class Plans extends Migration
         });
 
         Schema::create('plans_usages', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('subscription_id');
 
             $table->string('code');
@@ -75,7 +75,7 @@ class Plans extends Migration
         });
 
         Schema::create('stripe_customers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->integer('model_id');
             $table->string('model_type');
